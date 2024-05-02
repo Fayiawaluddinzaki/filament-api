@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DestinationsResource\Pages;
 use App\Filament\Resources\DestinationsResource\RelationManagers;
 use App\Models\Destinations;
+use App\Filament\Resources\DestinationsResource\Api\Transformers\DestinationsTransformer;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -72,5 +73,10 @@ class DestinationsResource extends Resource
             'create' => Pages\CreateDestinations::route('/create'),
             'edit' => Pages\EditDestinations::route('/{record}/edit'),
         ];
+    }
+
+    public static function getApiTransformer(): string
+    {
+        return DestinationsTransformer::class;
     }
 }
