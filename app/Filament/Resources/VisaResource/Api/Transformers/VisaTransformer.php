@@ -22,9 +22,7 @@ class VisaTransformer extends JsonResource
             'visa_expiry_date' => $this->visa_expiry_date,
             'visa_price' => $this->visa_price,
             'visa_description' => $this->visa_description,
-            // 'publish_status' => $this->publish_status,
-            // 'created_at' => $this->created_at,
-            // 'updated_at' => $this->updated_at,
+            // 'visa_image' => $this->visa_image,
         ];
     }
 }

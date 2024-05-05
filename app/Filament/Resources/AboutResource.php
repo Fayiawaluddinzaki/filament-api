@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\AboutResource\Api\Transformers\AboutTransformer;
 use App\Filament\Resources\AboutResource\Pages;
 use App\Filament\Resources\AboutResource\RelationManagers;
 use App\Models\About;
@@ -82,5 +83,11 @@ class AboutResource extends Resource
             'create' => Pages\CreateAbout::route('/create'),
             'edit' => Pages\EditAbout::route('/{record}/edit'),
         ];
+    }
+
+
+    public static function getApiTransformer()
+    {
+        return AboutTransformer::class;
     }
 }

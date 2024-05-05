@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\VisaResource\Pages;
+use App\Filament\Resources\VisaResource\Api\Transformers\VisaTransformer;
 use App\Filament\Resources\VisaResource\RelationManagers;
 use App\Models\Visa;
 use Filament\Forms;
@@ -110,5 +111,10 @@ class VisaResource extends Resource
             'create' => Pages\CreateVisa::route('/create'),
             'edit' => Pages\EditVisa::route('/{record}/edit'),
         ];
+    }
+
+    public static function getApiTransformer()
+    {
+        return VisaTransformer::class;
     }
 }
