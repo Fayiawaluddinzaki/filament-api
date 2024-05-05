@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('contact_type'); // contact_type can be email whatsapp and many more
-            $table->string('display_name'); // display_name is the name of the person who is contacting us
-            $table->string('contact_number'); // contact_number is the number of the person who is contacting us
+            $table->string('contact_type')->nullable(); // contact_type can be email whatsapp and many more
+            $table->string('display_name')->nullable(); // display_name is the name of the person who is contacting us
+            $table->string('contact_number')->nullable(); // contact_number is the number of the person who is contacting us
             $table->timestamps();
         });
     }

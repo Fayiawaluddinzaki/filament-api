@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('visas', function (Blueprint $table) {
             $table->id();
-            $table->string('visa_name'); //nama visa
-            $table->string('visa_type'); //type visa multiple or not
-            $table->string('visa_expiry_date'); //masa berlaku visa
-            $table->string('visa_price'); //harga per orang
+            $table->string('visa_name',50); //nama visa
+            $table->string('visa_type',50); //type visa multiple or not
+            $table->string('visa_expiry_date',50); //masa berlaku visa
+            $table->string('visa_price',50); //harga per orang
+            $table->text('visa_description'); //deskripsi visa
             $table->boolean('publish_status'); //publish or draft
             $table->timestamps();
         });

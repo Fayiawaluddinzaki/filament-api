@@ -10,7 +10,5 @@ class Destinations extends Model
     use HasFactory;
     protected $table = 'destinations';
     protected $primaryKey = 'id';
-    protected $fillable = [
-        'destination_name',
-    ];
+    protected $fillable = ['destination_name'];
 }

@@ -5,75 +5,80 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ToursResource\Pages;
 use App\Filament\Resources\ToursResource\RelationManagers;
 use App\Models\Tours;
+use App\Models\Destinations;
 use Filament\Forms;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-// use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\RichTextarea;
 
 class ToursResource extends Resource
 {
     protected static ?string $model = Tours::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-map';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('tour_name')
-                    ->name('Tour Name (judul tour)')
                     ->required()
                     ->maxLength(255),
-
-
                 Forms\Components\Select::make('tour_type')
+                    ->label('Tour Type')
                     ->options([
-                        'private' => 'Private',
-                        'series' => 'Series',
-                        'manymore' => 'Manymore',
+                        'private',
+                        'series',
+                        'family'
                     ])
-                    ->name('Tour Type') // private series or manymore
                     ->required(),
                     // ->maxLength(255),
-
-
                 // Forms\Components\TextInput::make('tour_type')
-                //     ->name('Tour Type') // private series or manymore
                 //     ->required()
                 //     ->maxLength(255),
-                Forms\Components\TextInput::make('destination_id')
-                    ->name('Destination')
-                    ->required()
-                    ->numeric(),
+                // Forms\Components\TextInput::make('destination_id')
+                //     ->required()
+                //     ->numeric(),
+                Forms\Components\Select::make('destination_id')
+                    ->label('Destination')
+                    ->options(Destinations::all()->pluck('destination_name', 'id'))
+                    ->searchable(),
                 Forms\Components\TextInput::make('tour_price')
-                    ->name('Tour Price')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tour_duration')
-                    ->name('Tour Duration')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\RichEditor::make('tour_description')
-                    ->name('Tour Description')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\FileUpload::make('tour_itinerary')
-                    ->name('Tour Itinerary')
-                    ->acceptedFileTypes(['application/pdf'])
-                    ->multiple()
+
+                // Forms\Components\TextInput::make('tour_description')
+                //     ->required()
+                //     ->maxLength(255),
+
+
+                RichEditor::make('tour_description')
+                    ->label('Tour Description')
                     ->required(),
-                    // ->maxLength(255),
-                // Forms\Components\RichEditor::make('tour_itinerary')
+
+
+                Forms\Components\FileUpload::make('tour_itinerary')
+                    ->label('Upload Itinerary')
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->downloadable()
+                    ->required(),
+
+                // Forms\Components\TextInput::make('tour_itinerary')
                 //     ->required()
                 //     ->maxLength(255),
                 Forms\Components\FileUpload::make('tour_image')
-                    ->name('Tour Image Banner')
-                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/jpg', 'image/webp'])
                     ->image()
+                    ->acceptedFileTypes(['jpg', 'png', 'jpeg'])
+                    ->downloadable()
+                    // ->maxSize(1024)
                     ->required(),
                 Forms\Components\Toggle::make('status')
                     ->required(),

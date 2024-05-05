@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title'); //title of about us
             $table->text('content'); //content of about us
             $table->string('image')->nullable(); //image of about us
-            $table->boolean('published')->default(false); //publish or not
+            $table->boolean('published'); //publish or not
+            // $table->boolean('published')->default(false); //publish or not
             $table->timestamps();
         });
     }

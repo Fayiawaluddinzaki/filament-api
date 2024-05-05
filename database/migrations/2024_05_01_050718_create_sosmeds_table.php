@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('sosmeds', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); //name of social media
+            $table->string('name',50); //name of social media
             $table->string('url')->nullable(); //url of social media
             $table->string('icon'); //icon for social media
-            $table->boolean('status_published')->default(false); //publish or not
+            $table->boolean('status_published'); //publish or not
+            // $table->boolean('status_published')->default(false); //publish or not
             $table->timestamps();
         });
     }

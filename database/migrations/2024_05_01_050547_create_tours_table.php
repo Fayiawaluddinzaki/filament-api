@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('tour_name'); //nama tour
             $table->string('tour_type'); //private atau lainnya
-            $table->foreignId('destination_id')->constrained('destinations'); //foreign key destinasi tour
+            $table->foreignId('destination_id')->constrained('destinations')->cascadeOnDelete();
             $table->string('tour_price'); //harga tour
-            $table->string('tour_duration'); //durasi tour
-            $table->string('tour_description'); //deskripsi tour
+            $table->string('tour_duration',); //durasi tour
+            // $table->string('tour_description'); //deskripsi tour
+            $table->text('tour_description'); //deskripsi tour
             $table->string('tour_itinerary'); //itinerary tour
             $table->string('tour_image'); //image for tour
             $table->boolean('status'); //publish or draft

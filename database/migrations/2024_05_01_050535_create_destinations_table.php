@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('destinations', function (Blueprint $table) {
             $table->id();
-            $table->string('destination_name'); //nama destinasi
+            $table->string('destination_name',100); //nama destinasi
             // $table->string('destination_description'); //deskripsi destinasi
             // $table->string('destination_image'); //image for destination
             // $table->boolean('status'); //publish or draft

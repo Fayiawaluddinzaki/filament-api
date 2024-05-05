@@ -17,6 +17,8 @@ class SmallbannerResource extends Resource
 {
     protected static ?string $model = Smallbanner::class;
 
+    protected static ?string $navigationLabel = 'Small Banner';
+
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     public static function form(Form $form): Form

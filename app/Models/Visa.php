@@ -14,6 +14,7 @@ class Visa extends Model
         'visa_type',
         'visa_expiry_date',
         'visa_price',
+        'visa_description',
         'publish_status',
     ];
 }

@@ -18,6 +18,8 @@ class DestinationsResource extends Resource
 {
     protected static ?string $model = Destinations::class;
 
+    protected static ?string $navigationLabel = 'Destinasi';
+
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
     public static function form(Form $form): Form
