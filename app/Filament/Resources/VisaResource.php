@@ -26,6 +26,7 @@ class VisaResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('visa_name')
+                    // ->label('Visa Na,e')
                     ->required()
                     ->maxLength(50),
 
@@ -52,6 +53,7 @@ class VisaResource extends Resource
                     ->maxLength(50),
                 Forms\Components\RichEditor::make('visa_description')
                     ->required()
+                    ->label('Deskripsi dan Syarat Pembuatan Visa')
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('publish_status')
                     ->required(),

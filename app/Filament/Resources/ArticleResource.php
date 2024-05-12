@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ArticleResource\Api\Transformers\ArticleTransformer;
 
 class ArticleResource extends Resource
 {
@@ -93,5 +94,10 @@ class ArticleResource extends Resource
             'create' => Pages\CreateArticle::route('/create'),
             'edit' => Pages\EditArticle::route('/{record}/edit'),
         ];
+    }
+
+    public static function getApiTransformer()
+    {
+        return ArticleTransformer::class;
     }
 }

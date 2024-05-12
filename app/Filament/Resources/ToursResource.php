@@ -15,6 +15,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\RichTextarea;
+use App\Filament\Resources\ToursResource\Api\Transformers\ToursTransformer;
 
 class ToursResource extends Resource
 {
@@ -144,5 +145,10 @@ class ToursResource extends Resource
             'create' => Pages\CreateTours::route('/create'),
             'edit' => Pages\EditTours::route('/{record}/edit'),
         ];
+    }
+
+    public static function getApiTransformer()
+    {
+        return ToursTransformer::class;
     }
 }

@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\ContactResource\Api\Transformers\ContactTransformer;
 
 class ContactResource extends Resource
 {
@@ -84,5 +85,10 @@ class ContactResource extends Resource
             'create' => Pages\CreateContact::route('/create'),
             'edit' => Pages\EditContact::route('/{record}/edit'),
         ];
+    }
+
+    public static function getApiTransformer()
+    {
+        return ContactTransformer::class;
     }
 }

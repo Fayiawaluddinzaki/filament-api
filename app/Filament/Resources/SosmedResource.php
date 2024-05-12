@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\SosmedResource\Api\Transformers\SosmedTransformer;
 
 class SosmedResource extends Resource
 {
@@ -87,5 +88,10 @@ class SosmedResource extends Resource
             'create' => Pages\CreateSosmed::route('/create'),
             'edit' => Pages\EditSosmed::route('/{record}/edit'),
         ];
+    }
+
+    public static function getApiTransformer()
+    {
+        return SosmedTransformer::class;
     }
 }

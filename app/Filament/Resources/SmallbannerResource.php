@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\SmallbannerResource\Api\Transformers\SmallbannerTransformer;
 
 class SmallbannerResource extends Resource
 {
@@ -87,5 +88,10 @@ class SmallbannerResource extends Resource
             'create' => Pages\CreateSmallbanner::route('/create'),
             'edit' => Pages\EditSmallbanner::route('/{record}/edit'),
         ];
+    }
+
+    public static function getApiTransformer()
+    {
+        return SmallbannerTransformer::class;
     }
 }
