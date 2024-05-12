@@ -14,5 +14,6 @@ class Contact extends Model
         'contact_type',
         'display_name',
         'contact_number',
+        'çontact_url',
     ];
 }

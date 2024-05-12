@@ -20,6 +20,7 @@ class ContactTransformer extends JsonResource
             'contact_type' => $this->contact_type,
             'display_name' => $this->display_name,
             'contact_number' => $this->contact_number,
+            'çontact_url' => $this->çontact_url,
         ];
     }
 }

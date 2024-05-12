@@ -28,13 +28,17 @@ class ContactResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('contact_type')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(30),
                 Forms\Components\TextInput::make('display_name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(50),
                 Forms\Components\TextInput::make('contact_number')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(20),
+                Forms\Components\TextInput::make('çontact_url')
+                ->required()
+                ->label('Whatsapp url / email')
+                ->maxLength(255),
             ]);
     }
 
@@ -48,6 +52,8 @@ class ContactResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('contact_number')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('çontact_url')
+                ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

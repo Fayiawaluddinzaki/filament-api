@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('contact_type')->nullable(); // contact_type can be email whatsapp and many more
             $table->string('display_name')->nullable(); // display_name is the name of the person who is contacting us
             $table->string('contact_number')->nullable(); // contact_number is the number of the person who is contacting us
+            $table->string('çontact_url'); // add url redirect to whatsapp
+            // $table->string('çontact_url')->require();
             $table->timestamps();
         });
     }
